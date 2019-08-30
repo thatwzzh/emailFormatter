@@ -6,21 +6,21 @@ import * as vscode from 'vscode';
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "emailformatter" is now active!');
+	let provider = vscode.languages.registerCompletionItemProvider('html', {
 
-	// The command has been defincured in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('extension.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
+		provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
 
-		// Display a message box to the user
-		vscode.window.showInformationMessage('hello world!');
-	});
+			const str = '${1|'+'e,2,4,6'+'|}';
+			const snippetCompletion = new vscode.CompletionItem('tx');
+			snippetCompletion.insertText = new vscode.SnippetString('<td '+ str +'>${2}</td>');
+			snippetCompletion.documentation = new vscode.MarkdownString("包含style的td标签");
+			return [
+				snippetCompletion
+			];
+		}
+	},'tx');
 
-	context.subscriptions.push(disposable);
+	context.subscriptions.push(provider);
 }
 
 // this method is called when your extension is deactivated
