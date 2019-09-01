@@ -10,16 +10,28 @@
 		"Other"
 	],
 	"activationEvents": [
+		"onCommand:setFontFamily",
 		"onLanguage:html"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
+				"command": "setFontFamily",
+				"title": "set fontfamily"
 			}
-		]
+		],
+		"configuration": {
+			"type": "object",
+			"title": "emailFormatter",
+			"properties": {
+				"emailFormatter.fontFamily": {
+					"type":"string",
+					"default": "Arial, Helvetica, sans-serif",
+					"description": "字体"
+				}
+			}
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "webpack --mode production",
