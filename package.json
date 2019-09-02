@@ -3,6 +3,10 @@
 	"displayName": "EmailFormatter",
 	"description": "format email",
 	"version": "0.0.1",
+	"repository": {
+        "type": "git",
+        "url": "https://https://github.com/thatwzzh/emailFormatter"
+    },
 	"engines": {
 		"vscode": "^1.37.0"
 	},
@@ -10,23 +14,16 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:setFontFamily",
 		"onLanguage:html"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
-		"commands": [
-			{
-				"command": "setFontFamily",
-				"title": "set fontfamily"
-			}
-		],
 		"configuration": {
 			"type": "object",
 			"title": "emailFormatter",
 			"properties": {
 				"emailFormatter.fontFamily": {
-					"type":"string",
+					"type": "string",
 					"default": "Arial, Helvetica, sans-serif",
 					"description": "字体"
 				}
