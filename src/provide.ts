@@ -24,7 +24,7 @@ class EmailFormatterProvider implements vscode.CompletionItemProvider {
       let defaultColor = ':#333333';
       for(let i = lineNum - 1; i>=0;i-- ){
         const text = document.lineAt(i).text;
-        const index = text.indexOf('<td style="font-family:');
+        const index = text.indexOf('<td style="font-size:');
         if( index >= 0 && index <= characterNum - 2 ){
           const size = text.slice(text.indexOf('font-size') + 10,text.indexOf(';color:')-2);
           defaultFontSize = size;
