@@ -3,6 +3,7 @@
 	"displayName": "EmailFormatter",
 	"description": "format email",
 	"version": "0.0.1",
+	"publisher": "wangzihao",
 	"repository": {
         "type": "git",
         "url": "https://https://github.com/thatwzzh/emailFormatter"
